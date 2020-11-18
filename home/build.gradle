@@ -1,0 +1,21 @@
+if (isRelease) {
+    apply plugin: 'com.android.library'
+} else {
+    apply plugin:  'com.android.application'
+}
+
+apply from: '../config.gradle'
+
+android {
+
+    defaultConfig {
+        if (!isRelease){
+            applicationId appID.home
+        }
+    }
+
+}
+
+dependencies {
+    implementation project(':common')
+}

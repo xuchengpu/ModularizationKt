@@ -1,0 +1,19 @@
+if (isRelease) {
+    apply plugin: 'com.android.library'
+} else {
+    apply plugin: 'com.android.application'
+}
+apply from: '../config.gradle'
+
+android {
+
+    defaultConfig {
+        if (!isRelease) { // 如果是集成化模式，不能有applicationId
+            applicationId appID.user// 组件化模式能独立运行才能有applicationId
+        }
+    }
+}
+
+dependencies {
+    implementation project(':common')
+}
