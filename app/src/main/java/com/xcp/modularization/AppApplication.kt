@@ -14,7 +14,7 @@ class AppApplication:Application() {
     override fun onCreate() {
         super.onCreate()
         // 如果项目有100个Activity，这种加法会不会太那个？  缺点
-        RecordPathManager.addGroupInfo("home","HomeMainActivity", HomeMainActivity::class.java)
-        RecordPathManager.addGroupInfo("user","UserMainActivity", UserMainActivity::class.java)
+//        RecordPathManager.addGroupInfo("home","HomeMainActivity", HomeMainActivity::class.java)
+//        RecordPathManager.addGroupInfo("user","UserMainActivity", UserMainActivity::class.java)
     }
 }

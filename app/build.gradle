@@ -12,6 +12,15 @@ android {
         // 为什么需要定义这个？因为src代码中有可能需要用到跨模块交互，如果是组件化模块显然不行
         // 切记：不能在android根节点，只能在defaultConfig或buildTypes节点下
         buildConfigField("boolean","isRelease",String.valueOf(isRelease))
+
+        // 在gradle文件中配置选项参数值（用于APT传参接收）
+        // 同学们注意：切记：必须写在defaultConfig节点下
+        javaCompileOptions {
+            annotationProcessorOptions {
+                // project.getName() == app
+                arguments = [moduleName: project.getName(), packageNameForAPT: packageNameForAPT]
+            }
+        }
     }
     buildTypes{
         debug {
@@ -30,7 +39,12 @@ dependencies {
 
     //from dependencies.gradle
 
-    implementation project(":common") // 公共基础库
+    implementation project(":common")// 公共基础库
+
+    implementation project(path: ':arouter_annotation')
+
+    kapt  project(path: ':arouter_compiler')
+
     if (isRelease){
         implementation project(':home')// 这样依赖时，必须是集成化，有柱状图， 否则会循环依赖问题
         implementation project(':user')

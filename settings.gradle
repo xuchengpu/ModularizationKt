@@ -1,3 +1,5 @@
+include ':arouter_annotation'
+include ':arouter_compiler'
 include ':home'
 include ':common'
 include ':user'

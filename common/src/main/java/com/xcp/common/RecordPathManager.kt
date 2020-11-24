@@ -49,7 +49,6 @@ class RecordPathManager {
          *  [pathName] 路径名  OrderMainActivity1
          * @return 跳转目标的class类对象
          */
-
         fun startTargetActivity(
             groupName: String?,
             pathName: String

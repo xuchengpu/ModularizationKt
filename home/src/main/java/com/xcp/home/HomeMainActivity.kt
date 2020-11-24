@@ -21,15 +21,36 @@ class HomeMainActivity : AppCompatActivity() {
 //                putExtra("name", "DoubleD")
 //                startActivity(this)
 //            }
-            //方式2 全局map
-            val targetActivity =
-                RecordPathManager.startTargetActivity("user", "UserMainActivity")
-            Intent(this, targetActivity).apply {
-                putExtra("name", "xuchengpu")
-                startActivity(this)
-            }
+            //方式2 全局map  手动注册
+//            val targetActivity =
+//                RecordPathManager.startTargetActivity("user", "UserMainActivity")
+//            Intent(this, targetActivity).apply {
+//                putExtra("name", "xuchengpu")
+//                startActivity(this)
+
+            //方式3 全局map  apt自动注册
+
+//                ARouter$$Group$$personal group$$personal = new ARouter$$Group$$personal();
+//                Map<String, Class<? extends ARouterPath>> groupMap = group$$personal.getGroupMap();
+//                Class<? extends ARouterPath> myClass = groupMap.get("personal");
+//
+//                try {
+//                    ARouter$$Path$$personal path = (ARouter$$Path$$personal) myClass.newInstance();
+//                    Map<String, RouterBean> pathMap = path.getPathMap();
+//                    RouterBean bean = pathMap.get("/personal/Personal_MainActivity");
+//
+//                    if (bean != null) {
+//                        Intent intent = new Intent(this, bean.getMyClass());
+//                        startActivity(intent);
+//                    }
+//
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
 
 
         }
+
+
     }
 }
