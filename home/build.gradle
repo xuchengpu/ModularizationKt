@@ -1,7 +1,7 @@
 if (isRelease) {
     apply plugin: 'com.android.library'
 } else {
-    apply plugin:  'com.android.application'
+    apply plugin: 'com.android.application'
 }
 
 apply from: '../config.gradle'
@@ -9,20 +9,21 @@ apply from: '../config.gradle'
 android {
 
     defaultConfig {
-        if (!isRelease){
+        if (!isRelease) {
             applicationId appID.home
         }
         // 都是为了 传递给 注解处理器
         // 在gradle文件中配置选项参数值（用于APT传参接收）
         // 同学们注意：切记：必须写在defaultConfig节点下
-        javaCompileOptions {
-            annotationProcessorOptions {
-                // project.getName() == order
-                // this.project.getName() == order
-                // this.getProject().getName() == order
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                // project.getName() == order
+//                // this.project.getName() == order
+//                // this.getProject().getName() == order
 //                arguments = [moduleName: project.getName(), packageNameForAPT: packageNameForAPT]
-            }
-        }
+//            }
+//        }
+
     }
 
 }
@@ -30,5 +31,5 @@ android {
 dependencies {
     implementation project(':common')
     implementation project(path: ':arouter_annotation')
-    kapt  project(path: ':arouter_compiler')
+    kapt project(path: ':arouter_compiler')
 }

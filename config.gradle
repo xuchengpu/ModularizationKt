@@ -7,7 +7,12 @@ apply plugin: 'kotlin-kapt'//kotlin语言使用注入框架，dataBinding都需�
 
 // 定义变量,相当于多个缓存，也可不定义
 def config_android = this.rootProject.ext.config_android
-
+kapt {
+    arguments {
+        arg("moduleName", project.getName())
+        arg("packageNameForAPT", packageNameForAPT)
+    }
+}
 android {
     compileSdkVersion config_android.compileSdkVersion
     buildToolsVersion config_android.buildToolsVersion
@@ -20,7 +25,9 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
+
     }
+
 
     buildTypes {
         release {
@@ -44,6 +51,7 @@ android {
         jvmTarget = '1.8'
     }
 }
+
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')

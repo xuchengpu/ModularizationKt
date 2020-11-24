@@ -5,9 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+import com.xcp.arouter_annotation.ARouter
 import com.xcp.common.utils.RecordPathManager
 import kotlinx.android.synthetic.main.activity_home_main.*
-
+@ARouter(path="/home/HomeMainActivity")
 class HomeMainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -3,7 +3,9 @@ package com.xcp.user
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.xcp.arouter_annotation.ARouter
 
+@ARouter(path="/user/UserMainActivity")
 class UserMainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
